@@ -144,7 +144,7 @@ CREATE TABLE public.moon ( moon_id integer NOT NULL,
                                            name character varying(20) NOT NULL,
                                                                       size_km_wide numeric NOT NULL,
                                                                                            color text NOT NULL,
-                                                                                                      age integer);
+                                                                                                      age integer, planet_id integer);
 
 
 ALTER TABLE public.moon OWNER TO freecodecamp;
@@ -172,7 +172,7 @@ ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
 CREATE TABLE public.planet ( planet_id integer NOT NULL,
                                                name character varying(20) NOT NULL,
                                                                           age integer NOT NULL,
-                                                                                      size_km_wide numeric, color text, inhabitable boolean);
+                                                                                      size_km_wide numeric, color text, inhabitable boolean, star_id integer);
 
 
 ALTER TABLE public.planet OWNER TO freecodecamp;
@@ -201,7 +201,7 @@ CREATE TABLE public.star ( star_id integer NOT NULL,
                                            name character varying(20) NOT NULL,
                                                                       size_in_km_wide numeric NOT NULL,
                                                                                               age_in_lightyears integer NOT NULL,
-                                                                                                                        moving boolean);
+                                                                                                                        moving boolean, galaxy_id integer);
 
 
 ALTER TABLE public.star OWNER TO freecodecamp;
@@ -349,7 +349,8 @@ VALUES (1,
         'Warren',
         4324,
         'Black',
-        345475);
+        345475,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -357,7 +358,8 @@ VALUES (2,
         'Leda',
         3455,
         'Green',
-        76543);
+        76543,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -365,7 +367,8 @@ VALUES (3,
         'Nelly',
         4365654,
         'Purple',
-        57543);
+        57543,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -373,7 +376,8 @@ VALUES (4,
         'Leon',
         3455,
         'Red',
-        34635);
+        34635,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -381,7 +385,8 @@ VALUES (5,
         'Spart',
         57864443,
         'Yellow',
-        2343);
+        2343,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -389,7 +394,8 @@ VALUES (6,
         'Dart',
         67453,
         'Dark Blue',
-        4573);
+        4573,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -397,7 +403,8 @@ VALUES (7,
         'Ian',
         364745,
         'Tan',
-        363);
+        363,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -405,7 +412,8 @@ VALUES (8,
         'Hercules',
         35645543,
         'Light brown',
-        535);
+        535,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -413,7 +421,8 @@ VALUES (9,
         'Celtic',
         6432,
         'Green',
-        54634);
+        54634,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -421,7 +430,8 @@ VALUES (10,
         'Viking',
         34532,
         'Light gray',
-        3464);
+        3464,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -429,7 +439,8 @@ VALUES (11,
         'Peter',
         432324,
         'Black',
-        45475);
+        45475,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -437,7 +448,8 @@ VALUES (12,
         'Linda',
         335455,
         'Baby blue',
-        6543);
+        6543,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -445,7 +457,8 @@ VALUES (13,
         'Kelly',
         65654,
         'Light purple',
-        7543);
+        7543,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -453,7 +466,8 @@ VALUES (14,
         'King',
         333455,
         'Dark Red',
-        4635);
+        4635,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -461,7 +475,8 @@ VALUES (15,
         'Triangle',
         764443,
         'Light green',
-        32343);
+        32343,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -469,7 +484,8 @@ VALUES (16,
         'Darce',
         7453,
         'Blue',
-        334573);
+        334573,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -477,7 +493,8 @@ VALUES (17,
         'Kiki',
         745,
         'Pink',
-        33363);
+        33363,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -485,7 +502,8 @@ VALUES (18,
         'Joel',
         645543,
         'Brown',
-        53533);
+        53533,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -493,7 +511,8 @@ VALUES (19,
         'Goblin',
         432,
         'Dark Green',
-        4634);
+        4634,
+        NULL);
 
 
 INSERT INTO public.moon
@@ -501,7 +520,8 @@ VALUES (20,
         'Willis',
         4532,
         'Gray',
-        464);
+        464,
+        NULL);
 
 --
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
@@ -513,7 +533,8 @@ VALUES (1,
         933784,
         464536343,
         'green',
-        true);
+        true,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -522,7 +543,8 @@ VALUES (2,
         453735,
         5376575,
         'Purple',
-        true);
+        true,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -531,7 +553,8 @@ VALUES (3,
         4343645,
         3465,
         'blue',
-        false);
+        false,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -540,7 +563,8 @@ VALUES (4,
         455848,
         658375867645,
         'white',
-        false);
+        false,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -549,7 +573,8 @@ VALUES (5,
         534654,
         3564746754645,
         'Brown',
-        false);
+        false,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -558,7 +583,8 @@ VALUES (6,
         437655,
         35756753,
         'blue',
-        false);
+        false,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -567,7 +593,8 @@ VALUES (7,
         3784,
         64536343,
         'green',
-        true);
+        true,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -576,7 +603,8 @@ VALUES (8,
         53735,
         376575,
         'Red',
-        true);
+        true,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -585,7 +613,8 @@ VALUES (9,
         343645,
         465,
         'blue',
-        false);
+        false,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -594,7 +623,8 @@ VALUES (10,
         55848,
         8375867645,
         'Neon',
-        false);
+        false,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -603,7 +633,8 @@ VALUES (11,
         34654,
         3746754645,
         'Gray',
-        false);
+        false,
+        NULL);
 
 
 INSERT INTO public.planet
@@ -612,7 +643,8 @@ VALUES (12,
         4655,
         357563,
         'red',
-        false);
+        false,
+        NULL);
 
 --
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
@@ -623,7 +655,8 @@ VALUES (1,
         'Crux',
         435643,
         53,
-        true);
+        true,
+        NULL);
 
 
 INSERT INTO public.star
@@ -631,7 +664,8 @@ VALUES (2,
         'Cancer',
         354,
         34564,
-        true);
+        true,
+        NULL);
 
 
 INSERT INTO public.star
@@ -639,7 +673,8 @@ VALUES (3,
         'Aries',
         245,
         43,
-        false);
+        false,
+        NULL);
 
 
 INSERT INTO public.star
@@ -647,7 +682,8 @@ VALUES (4,
         'Leo',
         45342,
         53645,
-        true);
+        true,
+        NULL);
 
 
 INSERT INTO public.star
@@ -655,7 +691,8 @@ VALUES (5,
         'Mochi',
         543,
         436534,
-        true);
+        true,
+        NULL);
 
 
 INSERT INTO public.star
@@ -663,7 +700,8 @@ VALUES (6,
         'Duke',
         54,
         65474,
-        false);
+        false,
+        NULL);
 
 --
 -- Name: comet_comet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
@@ -754,6 +792,27 @@ ALTER TABLE ONLY public.star ADD CONSTRAINT star_name_key UNIQUE (name);
 --
 
 ALTER TABLE ONLY public.star ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
+
+--
+-- Name: moon moon_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon ADD CONSTRAINT moon_planet_id_fkey
+FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
+
+--
+-- Name: planet planet_star_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet ADD CONSTRAINT planet_star_id_fkey
+FOREIGN KEY (star_id) REFERENCES public.star(star_id);
+
+--
+-- Name: star star_galaxy_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star ADD CONSTRAINT star_galaxy_id_fkey
+FOREIGN KEY (galaxy_id) REFERENCES public.galaxy(galaxy_id);
 
 --
 -- PostgreSQL database dump complete
